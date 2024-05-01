@@ -28,17 +28,24 @@ return {
            floats = "transparent",
         },
     },
+    enabled = false;
   },
 
   {
     "xiyaowong/transparent.nvim",
+    enabled = false;
+  },
+
+  {
+    "phha/zenburn.nvim",
+    config = function() require("zenburn").setup() end
   },
 
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "sonokai",
+      colorscheme = "zenburn",
     },
   },
 
@@ -244,6 +251,8 @@ return {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         }),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
       })
     end,
   },
